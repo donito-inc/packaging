@@ -1,0 +1,81 @@
+policy_module(donu, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type donu_t;
+type donu_exec_t;
+init_daemon_domain(donu_t, donu_exec_t)
+
+permissive donu_t;
+
+type donu_initrc_exec_t;
+init_script_file(donu_initrc_exec_t)
+
+type donu_conf_t;
+files_type(donu_conf_t)
+
+type donu_var_lib_t;
+files_type(donu_var_lib_t)
+
+type donu_var_run_t;
+files_type(donu_var_run_t)
+
+type donu_port_t;
+corenet_port(donu_port_t)
+
+########################################
+#
+# donu local policy
+#
+allow donu_t self:process { fork };
+
+allow donu_t self:fifo_file rw_fifo_file_perms;
+allow donu_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(donu_t, donu_conf_t, donu_conf_t)
+manage_files_pattern(donu_t, donu_conf_t, donu_conf_t)
+
+manage_dirs_pattern(donu_t, donu_var_lib_t, donu_var_lib_t)
+manage_files_pattern(donu_t, donu_var_lib_t, donu_var_lib_t)
+files_var_lib_filetrans(donu_t, donu_var_lib_t, { dir file })
+
+manage_dirs_pattern(donu_t, donu_var_run_t, donu_var_run_t)
+manage_files_pattern(donu_t, donu_var_run_t, donu_var_run_t)
+
+sysnet_dns_name_resolve(donu_t)
+corenet_all_recvfrom_unlabeled(donu_t)
+
+allow donu_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(donu_t)
+corenet_tcp_sendrecv_generic_node(donu_t)
+corenet_tcp_sendrecv_all_ports(donu_t)
+corenet_tcp_bind_generic_node(donu_t)
+
+gen_require(`
+    type donu_port_t;
+')
+allow donu_t donu_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type donu_port_t;
+')
+allow donu_t donu_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(donu_t)
+
+files_read_etc_files(donu_t)
+
+miscfiles_read_localization(donu_t)
+
+sysnet_dns_name_resolve(donu_t)
+
+allow donu_t donu_exec_t:file execute_no_trans;
+allow donu_t self:process setsched;
+corecmd_exec_ls(donu_t)
+corenet_tcp_connect_http_port(donu_t)
+dev_read_urand(donu_t)
+fs_getattr_xattr_fs(donu_t)
+kernel_read_system_state(donu_t)

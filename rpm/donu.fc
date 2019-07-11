@@ -1,0 +1,8 @@
+/usr/bin/donu-cli		--	gen_context(system_u:object_r:donu_exec_t,s0)
+/usr/sbin/donud		--	gen_context(system_u:object_r:donu_exec_t,s0)
+/usr/lib(64)?/donu/donud		--	gen_context(system_u:object_r:donu_exec_t,s0)
+
+/etc/donu(/.*)?		gen_context(system_u:object_r:donu_conf_t,s0)
+/var/lib/donu(/.*)?		gen_context(system_u:object_r:donu_var_lib_t,s0)
+
+(/var)?/run/donud(/.*)?   gen_context(system_u:object_r:donu_var_run_t,s0)

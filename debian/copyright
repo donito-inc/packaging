@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: Bitcoin
+Upstream-Name:Bitcoin
 Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
  irc://#bitcoin@freenode.net
 Source: https://github.com/bitcoin/bitcoin
@@ -10,9 +10,16 @@ License: Expat
 Comment: The Bitcoin Core Developers encompasses the current developers listed on bitcoin.org,
          as well as the numerous contributors to the project.
 
+Files: *
+Copyright: 2009-2018, Donu Core Developers
+License: Expat
+Comment: The Donu Core Developers encompasses the current developers listed on bitcoin.org,
+         as well as the numerous contributors to the project.
+
 Files: debian/*
 Copyright: 2010-2011, Jonas Smedegaard <dr@jones.dk>
            2011, Matt Corallo <matt@bluematt.me>
+           2019, Ahmed Bodiwala <admin@multicoin.co>
 License: GPL-2+
 
 Files: src/secp256k1/build-aux/m4/ax_jni_include_dir.m4
@@ -86,12 +93,12 @@ License: Expat
 Comment: Modifications of Stephan Hutchings Typicons
 
 Files: src/qt/res/icons/about.png
-       src/qt/res/icons/bitcoin.*
-       share/pixmaps/bitcoin*
-       src/qt/res/src/bitcoin.svg
+       src/qt/res/icons/donu.*
+       share/pixmaps/donu*
+       src/qt/res/src/donu.svg
 Copyright: Bitboy, Jonas Schnelli
 License: public-domain
-Comment: Site: https://bitcointalk.org/?topic=1756.0
+Comment: Site: https://donutalk.org/?topic=1756.0
 
 Files: src/qt/res/icons/proxy.png
        src/qt/res/src/proxy.svg

@@ -1,8 +1,8 @@
-name: bitcoin-core
+name: donu-core
 version: 0.18.0
 summary:   peer-to-peer network based digital currency
 description: |
-  Bitcoin is a free open source peer-to-peer electronic cash system that
+  Donu is a free open source peer-to-peer electronic cash system that
   is completely decentralized, without the need for a central server or
   trusted parties.  Users hold the crypto keys to their own money and
   transact directly with each other, with the help of a P2P network to
@@ -13,48 +13,48 @@ confinement: strict
 
 apps:
   daemon:
-    command: bitcoind
+    command: donud
     plugs: [network, network-bind]
     environment:
-      # Override HOME so the bitcoin datadir is located at
-      # ~/snap/bitcoin/common/.bitcoin instead of
-      # ~/snap/bitcoin/current/.bitcoin, and each new version of the bitcoin
+      # Override HOME so the donu datadir is located at
+      # ~/snap/donu/common/.donu instead of
+      # ~/snap/donu/current/.donu, and each new version of the donu
       # snap won't have a different data directory:
       # https://docs.snapcraft.io/environment-variables/7983
       HOME: $SNAP_USER_COMMON
   qt:
-    command: desktop-launch bitcoin-qt
+    command: desktop-launch donu-qt
     plugs: [network, network-bind, desktop, x11]
     environment:
       HOME: $SNAP_USER_COMMON
       DISABLE_WAYLAND: 1
   cli:
-    command: bitcoin-cli
+    command: donu-cli
     plugs: [network]
     environment:
       HOME: $SNAP_USER_COMMON
 
 parts:
-  bitcoin-core:
+  donu-core:
     plugin: nil
     override-build: | 
       env | grep SNAP
-      wget https://bitcoincore.org/bin/bitcoin-core-${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
-      wget https://bitcoincore.org/bin/bitcoin-core-${SNAPCRAFT_PROJECT_VERSION}/bitcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
-      wget https://bitcoincore.org/bin/bitcoin-core-${SNAPCRAFT_PROJECT_VERSION}/bitcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      wget https://donucore.org/bin/donu-core-${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
+      wget https://donucore.org/bin/donu-core-${SNAPCRAFT_PROJECT_VERSION}/donu-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
+      wget https://donucore.org/bin/donu-core-${SNAPCRAFT_PROJECT_VERSION}/donu-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
       gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 01EA5486DE18A882D4C2684590C8019E36C2E964
       gpg --verify SHA256SUMS.asc
       echo "311ed802bbd06b4997c40f62e171b08ec471a2182de9eafed3e3d3382f028c34  SHA256SUMS.asc" | sha256sum --check
       sha256sum --ignore-missing --check SHA256SUMS.asc
-      tar -xvf bitcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
-      tar -xvf bitcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
+      tar -xvf donu-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      tar -xvf donu-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       echo "Running tests ..."
-      bitcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/test_bitcoin
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin bitcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/bitcoind
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin bitcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/bitcoin-qt
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin bitcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/bitcoin-cli
-      wget https://raw.githubusercontent.com/bitcoin/bitcoin/v${SNAPCRAFT_PROJECT_VERSION}/share/pixmaps/bitcoin128.png
-      install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps bitcoin128.png
+      donu-${SNAPCRAFT_PROJECT_VERSION}/bin/test_donu
+      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin donu-${SNAPCRAFT_PROJECT_VERSION}/bin/donud
+      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin donu-${SNAPCRAFT_PROJECT_VERSION}/bin/donu-qt
+      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin donu-${SNAPCRAFT_PROJECT_VERSION}/bin/donu-cli
+      wget https://raw.githubusercontent.com/donu/donu/v${SNAPCRAFT_PROJECT_VERSION}/share/pixmaps/donu128.png
+      install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps donu128.png
     build-packages:
       - wget
     after:
