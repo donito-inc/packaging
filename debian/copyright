@@ -1,25 +1,26 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name:Bitcoin
-Upstream-Contact: Satoshi Nakamoto <satoshin@gmx.com>
- irc://#bitcoin@freenode.net
-Source: https://github.com/bitcoin/bitcoin
+Upstream-Name: Peercoin
+Upstream-Contact: Stichting Peercoin Foundation <foundation@peercoin.net>
+Source: https://github.com/peercoin/peercoin
 
 Files: *
-Copyright: 2009-2018, Bitcoin Core Developers
-License: Expat
-Comment: The Bitcoin Core Developers encompasses the current developers listed on bitcoin.org,
-         as well as the numerous contributors to the project.
-
-Files: *
-Copyright: 2009-2018, Donu Core Developers
+Copyright: 2009-2020, Donu Core Developers
 License: Expat
 Comment: The Donu Core Developers encompasses the current developers listed on bitcoin.org,
+         as well as the numerous contributors to the project.
+         
+Files: *
+Copyright: 2012-2019, Peercoin Developers
+License: Expat
+Comment: The Peercoin Developers encompasses the current developers listed on https://github.com/peercoin/peercoin,
          as well as the numerous contributors to the project.
 
 Files: debian/*
 Copyright: 2010-2011, Jonas Smedegaard <dr@jones.dk>
            2011, Matt Corallo <matt@bluematt.me>
-           2019, Ahmed Bodiwala <admin@multicoin.co>
+           2019 Zvonimir Mostarac <peerchemist@protonmail.ch>
+           2019-2020, Ahmed Bodiwala <admin@multicoin.co>
+
 License: GPL-2+
 
 Files: src/secp256k1/build-aux/m4/ax_jni_include_dir.m4
@@ -55,19 +56,9 @@ Files: src/qt/res/icons/add.png
        src/qt/res/icons/transaction*.png
        src/qt/res/icons/tx_output.png
        src/qt/res/icons/warning.png
-Copyright: Stephen Hutchings (and more)
-           http://typicons.com
-License: Expat
-Comment: Site: https://github.com/stephenhutchings/typicons.font
-
-Files: src/qt/res/icons/connect*.png
-       src/qt/res/src/connect-*.svg
-       src/qt/res/icons/network_disabled.png
-       src/qt/res/src/network_disabled.svg
-Copyright: Marco Falke
-           Luke Dashjr
-License: Expat
-Comment: Inspired by Stephan Hutchings Typicons
+Copyright: Stichting Peercoin Foundation
+License: Creative Commons Attribution No Derivatives license 
+Comment: Site: https://github.com/peercoin/media
 
 Files: src/qt/res/icons/tx_mined.png
        src/qt/res/src/mine.svg
@@ -79,31 +70,16 @@ Files: src/qt/res/icons/tx_mined.png
        src/qt/res/src/hd_enabled.svg
 Copyright: Jonas Schnelli
 License: Expat
-Comment:
 
-Files: src/qt/res/icons/clock*.png
-       src/qt/res/icons/eye_*.png
-       src/qt/res/icons/verify.png
-       src/qt/res/icons/tx_in*.png
-       src/qt/res/src/clock_*.svg
-       src/qt/res/src/tx_*.svg
-       src/qt/res/src/verify.svg
-Copyright: Stephan Hutching, Jonas Schnelli
-License: Expat
-Comment: Modifications of Stephan Hutchings Typicons
-
-Files: src/qt/res/icons/about.png
-       src/qt/res/icons/donu.*
-       share/pixmaps/donu*
-       src/qt/res/src/donu.svg
-Copyright: Bitboy, Jonas Schnelli
-License: public-domain
-Comment: Site: https://donutalk.org/?topic=1756.0
-
-Files: src/qt/res/icons/proxy.png
-       src/qt/res/src/proxy.svg
-Copyright: Cristian Mircea Messel
-Licese: public-domain
+Files: src/qt/res/images/about.png
+       src/qt/res/images/logo.png
+       share/images/logomask.png
+       share/images/splash.png
+       share/images/splash-testnet.png
+       share/images/transparent-background.png
+Copyright: Stichting Peercoin Foundation
+License: Creative Commons Attribution No Derivatives license 
+Comment: Site: https://github.com/peercoin/media
 
 
 License: Expat
@@ -162,3 +138,12 @@ Comment:
 
 License: public-domain
  This work is in the public domain.
+
+License: Creative Commons Attribution No Derivatives license
+ By exercising the Licensed Rights (defined below), You accept and agree
+ to be bound by the terms and conditions of this Creative Commons Attribution-NoDerivatives
+ 4.0 International Public License ("Public License"). To the extent this Public License
+ may be interpreted as a contract, You are granted the Licensed Rights in consideration
+ of Your acceptance of these terms and conditions, and the Licensor grants You such rights
+ in consideration of benefits the Licensor receives from making the
+ Licensed Material available under these terms and conditions.

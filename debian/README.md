@@ -1,8 +1,8 @@
 
 Debian
 ====================
-This directory contains files used to package donud/donu-qt
-for Debian-based Linux systems. If you compile donud/donu-qt yourself, there are some useful files here.
+This directory contains files used to package donu/donu-qt
+for Debian-based Linux systems. If you compile donu/donu-qt yourself, there are some useful files here.
 
 ## donu: URI support ##
 
