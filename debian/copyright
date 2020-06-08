@@ -75,7 +75,6 @@ Files: src/qt/res/images/about.png
        src/qt/res/images/logo.png
        share/images/logomask.png
        share/images/splash.png
-       share/images/splash-testnet.png
        share/images/transparent-background.png
 Copyright: Stichting Peercoin Foundation
 License: Creative Commons Attribution No Derivatives license 
